@@ -2,6 +2,9 @@
 
 This is a template devcontainer for PyTorch development using AMD ROCm on Ryzen AI systems.
 
+> [!TIP]
+Blog Post regarding this repo is here [Getting PyTorch + ROCm Working on a Framework 13 (Ryzen AI 9) Using a Dev Container](https://www.cicoria.com/getting-pytorch-rocm-working-on-a-framework-13-ryzen-ai-9-using-a-dev-container/)
+
 ## Background
 
 This devcontainer was created specifically for the following hardware and software configuration:
