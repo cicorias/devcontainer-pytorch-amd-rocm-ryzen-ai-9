@@ -1,0 +1,44 @@
+{
+	"name": "ROCm PyTorch Development",
+	"image": "rocm/pytorch:rocm7.1_ubuntu24.04_py3.12_pytorch_release_2.8.0",
+	
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"github.copilot-chat",
+				"ms-toolsai.jupyter"
+			]
+		}
+	},
+
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest"
+		}
+	},
+
+	// Forward GPU devices
+	"runArgs": [
+		"--device=/dev/kfd",
+		"--device=/dev/dri",
+		"--group-add=video",
+		"--ipc=host",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt=seccomp=unconfined"
+	],
+
+	// Set environment variables
+	"containerEnv": {
+		"HSA_OVERRIDE_GFX_VERSION": "11.0.0"
+	},
+
+	"postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+
+	"remoteUser": "root"
+}
